@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #111827;
+  border-bottom: 1px solid #334155;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.wide-card {
+  grid-column: 1 / -1;
+}
+
+.form-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+input, select, textarea {
+  background: #0f172a;
+  color: white;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.primary {
+  background: #22c55e;
+  color: black;
+  font-weight: bold;
+}
+
+.alert-card {
+  border: 2px solid #ef4444;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border-bottom: 1px solid #334155;
+  padding: 10px;
+  text-align: left;
+}
+
+.chart {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  min-height: 200px;
+}
+
+.bar {
+  flex: 1;
+  background: #22c55e;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+}
+
+.bar span {
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+}
