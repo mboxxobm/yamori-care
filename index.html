@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ヤモリケア</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>ヤモリケア</h1>
+      <p>ヤモリ・ゲッコーの給餌と状態を記録するローカル管理サイト</p>
+    </div>
+    <button id="exportBtn">JSON出力</button>
+  </header>
+
+  <main class="layout">
+    <section class="card">
+      <h2>今日の記録を追加</h2>
+      <form id="recordForm" class="form-grid">
+        <label>日付<input type="date" id="date" required></label>
+        <label>名前<input type="text" id="name" list="names" required></label>
+        <datalist id="names"></datalist>
+        <label>種類<input type="text" id="species"></label>
+        <label>コオロギ匹数<input type="number" id="crickets" min="0" value="0"></label>
+        <label>補助食<input type="text" id="food" placeholder="例：コオロギフード"></label>
+        <label>食いつき
+          <select id="appetite">
+            <option>通常</option>
+            <option>食いつき普通</option>
+            <option>少し</option>
+            <option>食いつき悪い</option>
+            <option>食べず</option>
+          </select>
+        </label>
+        <label class="wide">メモ<textarea id="memo" rows="3"></textarea></label>
+        <button type="submit" class="primary">保存</button>
+      </form>
+    </section>
+
+    <section class="card alert-card">
+      <h2>食欲低下アラート</h2>
+      <div id="alerts"></div>
+    </section>
+
+    <section class="card wide-card">
+      <h2>給餌履歴</h2>
+      <table>
+        <thead><tr><th>日付</th><th>名前</th><th>種類</th><th>エサ</th><th>状態</th><th>メモ</th></tr></thead>
+        <tbody id="recordsBody"></tbody>
+      </table>
+    </section>
+
+    <section class="card wide-card">
+      <h2>給餌履歴グラフ</h2>
+      <div id="chart" class="chart"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
