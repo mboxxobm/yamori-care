@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ヤモリ管理サイト</title>
+    <link rel="stylesheet" href="./styles.css?v=2" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Gecko Daily Care</p>
+          <h1>ヤモリ管理サイト</h1>
+          <p class="lead">給餌、掃除、湿度交換、食いつきの変化を個体ごとに記録できます。</p>
+        </div>
+        <div class="today-card" aria-label="今日の概要">
+          <span id="todayLabel"></span>
+          <strong id="todayTotal">0匹</strong>
+          <small>今日のコオロギ合計</small>
+        </div>
+      </header>
+
+      <section class="alerts-panel" aria-labelledby="alertsTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Care Alerts</p>
+            <h2 id="alertsTitle">アラート</h2>
+          </div>
+          <button id="resetButton" class="ghost-button" type="button">初期データに戻す</button>
+        </div>
+        <div id="alertsList" class="alerts-list"></div>
+      </section>
+
+      <section class="grid two-column">
+        <article class="panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Geckos</p>
+              <h2>個体登録</h2>
+            </div>
+          </div>
+          <form id="geckoForm" class="stack-form">
+            <input id="geckoId" type="hidden" />
+            <label>
+              名前
+              <input id="geckoName" type="text" autocomplete="off" required placeholder="例: ソメちゃん" />
+            </label>
+            <label>
+              種類
+              <input id="geckoSpecies" type="text" autocomplete="off" required placeholder="例: ニホンヤモリ" />
+            </label>
+            <label>
+              性別
+              <select id="geckoSex">
+                <option value="不明">不明</option>
+                <option value="オス">オス</option>
+                <option value="メス">メス</option>
+              </select>
+            </label>
+            <label>
+              メモ
+              <textarea id="geckoMemo" rows="3" placeholder="特徴、予定、注意点"></textarea>
+            </label>
+            <button class="primary-button" type="submit">個体を保存</button>
+          </form>
+        </article>
+
+        <article class="panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Daily Log</p>
+              <h2>給餌記録を追加</h2>
+            </div>
+          </div>
+          <form id="recordForm" class="stack-form">
+            <label>
+              日付
+              <input id="recordDate" type="date" required />
+            </label>
+            <label>
+              個体
+              <select id="recordGecko" required></select>
+            </label>
+            <div class="split">
+              <label>
+                コオロギ匹数
+                <input id="recordCrickets" type="text" inputmode="numeric" pattern="[0-9]*" required />
+              </label>
+              <label>
+                フード
+                <select id="recordFood">
+                  <option value="あり">あり</option>
+                  <option value="なし">なし</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              食いつき状態
+              <select id="recordAppetite">
+                <option value="通常">通常</option>
+                <option value="食いつき普通">食いつき普通</option>
+                <option value="食いつき悪い">食いつき悪い</option>
+                <option value="食べず">食べず</option>
+              </select>
+            </label>
+            <div class="check-row">
+              <label><input id="recordCleaning" type="checkbox" /> 掃除</label>
+              <label><input id="recordHumidity" type="checkbox" /> 湿度交換</label>
+            </div>
+            <label>
+              メモ
+              <textarea id="recordMemo" rows="3" placeholder="様子や次回予定"></textarea>
+            </label>
+            <button class="primary-button" type="submit">記録を保存</button>
+          </form>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Profiles</p>
+            <h2>登録個体</h2>
+          </div>
+        </div>
+        <div id="geckoList" class="gecko-list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading graph-heading">
+          <div>
+            <p class="eyebrow">Cricket Chart</p>
+            <h2>給餌履歴グラフ</h2>
+          </div>
+          <div class="segmented" aria-label="表示期間">
+            <button class="range-button active" type="button" data-days="7">7日</button>
+            <button class="range-button" type="button" data-days="30">30日</button>
+          </div>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="feedingChart" height="260"></canvas>
+        </div>
+        <div id="chartLegend" class="chart-legend"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">History</p>
+            <h2>記録一覧</h2>
+          </div>
+          <select id="historyFilter" aria-label="履歴の個体フィルター"></select>
+        </div>
+        <div id="historyList" class="history-list"></div>
+      </section>
+    </main>
+
+    <script src="./app.js?v=2"></script>
+  </body>
+</html>
