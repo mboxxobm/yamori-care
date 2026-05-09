@@ -1,0 +1,163 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "やもりケア",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AddCareEventIntent",
+          "slots": [
+            {
+              "name": "gecko",
+              "type": "GECKO_NAME"
+            },
+            {
+              "name": "careType",
+              "type": "CARE_TYPE"
+            },
+            {
+              "name": "count",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "{gecko} {careType}",
+            "{gecko} が {careType}",
+            "{gecko} に {careType}",
+            "{gecko} {careType} {count} 匹",
+            "{gecko} に {careType} {count} 匹",
+            "{gecko} へ {careType} {count} 匹",
+            "{gecko} に {careType} {count} 匹を記録",
+            "{gecko} に {careType} {count} 匹を記録して",
+            "{gecko} に {careType} {count} 匹あげた",
+            "{gecko} に {careType} {count} 匹入れた",
+            "{gecko} が {careType} した",
+            "{gecko} が {careType} しました",
+            "{careType}",
+            "{careType} した",
+            "{careType} しました",
+            "{careType} を交換",
+            "{careType} を交換した",
+            "{careType} を交換しました",
+            "{careType} を記録",
+            "{careType} を記録して"
+          ]
+        },
+        {
+          "name": "AskLatestEventIntent",
+          "slots": [
+            {
+              "name": "gecko",
+              "type": "GECKO_NAME"
+            },
+            {
+              "name": "careType",
+              "type": "CARE_TYPE"
+            }
+          ],
+          "samples": [
+            "{gecko} の最後の {careType} はいつ",
+            "{gecko} は最後にいつ {careType}",
+            "最後の {careType} はいつ",
+            "{careType} はいつした",
+            "{gecko} の {careType} を確認",
+            "{careType} の最新記録"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "name": "GECKO_NAME",
+          "values": [
+            {
+              "name": {
+                "value": "ここあちゃん",
+                "synonyms": ["ココアちゃん", "ここあ", "ココア"]
+              }
+            },
+            {
+              "name": {
+                "value": "みかんちゃん",
+                "synonyms": ["オレンジ", "オレンジちゃん", "みかん"]
+              }
+            },
+            {
+              "name": {
+                "value": "そめちゃん",
+                "synonyms": ["ソメちゃん", "そめ", "ソメ"]
+              }
+            },
+            {
+              "name": {
+                "value": "めめちゃん",
+                "synonyms": ["メメちゃん", "めめ", "メメ"]
+              }
+            },
+            {
+              "name": {
+                "value": "福ちゃん",
+                "synonyms": ["ふくちゃん", "福", "ふく"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "CARE_TYPE",
+          "values": [
+            {
+              "name": {
+                "value": "コオロギ",
+                "synonyms": ["コオロギ投入", "こおろぎ", "虫"]
+              }
+            },
+            {
+              "name": {
+                "value": "ミルワーム",
+                "synonyms": ["みるわーむ", "ミミズ", "みみず"]
+              }
+            },
+            {
+              "name": {
+                "value": "コオロギフード",
+                "synonyms": ["コオロギの餌", "コオロギ餌", "こおろぎの餌"]
+              }
+            },
+            {
+              "name": {
+                "value": "シーツ交換",
+                "synonyms": ["シーツ", "ペットシーツ", "掃除"]
+              }
+            },
+            {
+              "name": {
+                "value": "産卵",
+                "synonyms": ["卵", "たまご", "卵を産んだ"]
+              }
+            },
+            {
+              "name": {
+                "value": "脱皮",
+                "synonyms": ["皮を脱いだ", "皮を脱ぎました"]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

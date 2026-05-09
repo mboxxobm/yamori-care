@@ -12,6 +12,17 @@
 - 食欲低下、コオロギ0匹継続アラート
 - localStorage保存
 
+## Alexa連携
+
+Alexaで声入力してDynamoDBへ保存するための作業ファイルを追加しています。
+
+- 音声モデル: `alexa/interaction-model-ja-JP.json`
+- Alexa用Lambda: `aws/lambda/alexa-gecko-care/`
+- Lambda権限例: `aws/iam/gecko-care-lambda-policy.json`
+- 手順書: `docs/ALEXA_AWS_SETUP.md`
+
+完成形では、Alexa SkillからAWS Lambdaを呼び、DynamoDB `GeckoCareEvents` に記録を保存します。
+
 ## 使い方
 
 `index.html` をブラウザで開くと使えます。
